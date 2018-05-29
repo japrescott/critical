@@ -93,7 +93,7 @@ exports.generate = function (opts, cb) {
     if (opts.inline) {
         corePromise = Promise.all([file.getVinylPromise(opts), corePromise])
             .then(([file, css]) => {
-                console.error('Arguments ->', file);
+                console.error('Arguments ->', file.contents.toString(), css, opts.inline);
                 return sourceInliner(file.contents.toString(), css, opts.inline)
             });
     }
