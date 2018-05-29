@@ -51,7 +51,7 @@ function prepareOptions(opts) {
     options.inline = Boolean(options.inline) && assign({
         minify: opts.minify || false,
         extract: opts.extract || false,
-        overrideOriginal: opts.overrideOriginal || false,
+        overrideOriginal: opts.extract & opts.overrideOriginal || false,
         basePath: opts.base || process.cwd()
     }, (isObject(options.inline) && options.inline) || {});
 
@@ -93,10 +93,7 @@ exports.generate = function (opts, cb) {
     // Inline
     if (opts.inline) {
         corePromise = Promise.all([file.getVinylPromise(opts), corePromise])
-            .then(([file, css]) => {
-                console.error('Arguments ->', file.contents.toString(), css, opts.inline);
-                return sourceInliner(file.contents.toString(), css, opts.inline)
-            });
+            .then(([file, css]) => sourceInliner(file.contents.toString(), css, opts.inline));
     }
 
     // Save to file
