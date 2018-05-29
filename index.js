@@ -51,6 +51,7 @@ function prepareOptions(opts) {
     options.inline = Boolean(options.inline) && assign({
         minify: opts.minify || false,
         extract: opts.extract || false,
+        overrideOriginal: opts.extract & opts.overrideOriginal || false,
         basePath: opts.base || process.cwd()
     }, (isObject(options.inline) && options.inline) || {});
 
