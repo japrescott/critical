@@ -47,6 +47,10 @@ function prepareOptions(opts) {
         options.destFolder = path.join(options.base, options.destFolder);
     }
 
+    if (!options.inline && options.extract) {
+        console.error(chalk.red('The extract option requires inline:true'));
+    }
+
     // Set options for inline-critical
     options.inline = Boolean(options.inline) && assign({
         minify: opts.minify || false,
@@ -93,7 +97,13 @@ exports.generate = function (opts, cb) {
     // Inline
     if (opts.inline) {
         corePromise = Promise.all([file.getVinylPromise(opts), corePromise])
-            .then(([file, css]) => sourceInliner(file.contents.toString(), css, opts.inline));
+            .then(([file, css]) => {
+                if (css) {
+                    return sourceInliner(file.contents.toString(), css, opts.inline);
+                }
+
+                return file.contents.toString();
+            });
     }
 
     // Save to file

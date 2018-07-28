@@ -1,4 +1,21 @@
 
+v1.3.4 / 2018-07-19
+==================
+
+  * fix: return Promise.reject instead of re-throw
+  * fix: handle PAGE_UNLOADED_DURING_EXECUTION error (#314)
+  * output warning on invalid extract setting
+  * Add user agent option (#316)
+  * Bump dependencies
+  * npm audit fix
+
+v1.3.3 / 2018-06-06
+===================
+
+  * Bump dependencies
+  * Docs: fix typo (#310)
+  * Reduced vulnerabilities [#308]
+
 v1.3.2 / 2018-05-15
 ==================
 
