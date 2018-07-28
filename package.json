@@ -37,7 +37,6 @@
     "group-args": "^0.1.0",
     "indent-string": "^3.2.0",
     "inline-critical": "github:japrescott/inline-critical",
-    "inline-critical": "^4.0.4",
     "lodash": "^4.17.5",
     "meow": "^5.0.0",
     "mime-types": "^2.1.19",
