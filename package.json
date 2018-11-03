@@ -41,7 +41,7 @@
     "meow": "^5.0.0",
     "mime-types": "^2.1.19",
     "oust": "^0.4.0",
-    "penthouse": "^1.8.2",
+    "penthouse": "^1.10.1",
     "plugin-error": "^1.0.1",
     "postcss": "^7.0.2",
     "postcss-image-inliner": "^2.0.0",
